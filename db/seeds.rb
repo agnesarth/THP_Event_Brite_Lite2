@@ -9,7 +9,7 @@
 User.destroy_all
 Event.destroy_all
 
-10.times do 
+5.times do 
   @user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -20,7 +20,7 @@ Event.destroy_all
 end
 puts "Tes users sont dans la place"
 
-10.times do
+3.times do
   @event = Event.create(
     start_date: Faker::Date.forward(days: 360),
     duration: [15, 30, 45, 60, 90, 120, 150].sample,
@@ -34,7 +34,7 @@ end
 puts "Tes events sont créés"
 
 
-100.times do
+10.times do
   @attendance = Attendance.create(
     stripe_customer_id: "bonjourbisous",
     guest: User.all.sample,
