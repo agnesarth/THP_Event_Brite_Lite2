@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-  default from: 'no-reply@monsite.fr'
+  default from: 'thpexercice@gmail.com'
  
   def new_attendance(attendance)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
