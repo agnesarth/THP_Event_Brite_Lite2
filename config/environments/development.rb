@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # pour l'envoi des e-mails
-  config.action_mailer.delivery_method = :letter_opener 
+  #config.action_mailer.delivery_method = :letter_opener 
   config.action_mailer.perform_deliveries = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
