@@ -51,14 +51,15 @@ Ce qui a été réalisé dans le projet du jour :
 
 * 2.1. Branchement de Bootstrap
 * 2.2. Branchement de Devise
-
-## Work in progress :
-
 * 2.3. Faire les premières views
 * 2.3.1. La page d'accueil
 * 2.3.2. La page profil d'un utilisateur
 * 2.3.3. Création d'un événement
 * 2.3.4. Afficher un événement
+
+## Work in progress :
+
+Nil
 
 ## Required gems (please check Gemfile)
 
