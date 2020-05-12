@@ -1,0 +1,27 @@
+<div class="container-fluid ">
+  <h2 class="mt-5">Edit my profile</h2>
+
+  <div class="container-fluid">
+    <%= form_for(current_user, url: user_path(current_user), method: :put) do |f| %>
+    <div class="field">
+      <%= f.label "Firstname" %><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: :first_name %>
+    </div><br />
+    <div class="field">
+      <%= f.label "Lastname" %> <br />
+      <%= f.text_field :last_name, autocomplete: :last_name %>
+    </div><br />
+    <div class="field">
+      <%= f.label "Description" %> <br />
+      <%= f.text_area :description, autocomplete: :description %>
+    </div><br />
+    <div class="actions">
+      <%= f.submit "Update", type:"button", class:"btn btn-outline-primary btn-sm" %>
+    </div>
+  <% end %>
+  </div>
+
+  <div class="mt-5">
+    <%= link_to "Back", :back %>
+  </div>
+</div>

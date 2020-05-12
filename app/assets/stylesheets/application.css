@@ -13,3 +13,15 @@
 .container-event {
   text-align: center;
 }
+
+.nav-left {
+  margin-right: auto;
+}
+
+.texte-bienvenue {
+  margin-top: 20px;
+}
+
+.flash {
+  margin-bottom: 0px;
+}

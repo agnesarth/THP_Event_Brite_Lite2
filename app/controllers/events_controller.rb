@@ -6,6 +6,21 @@ class EventsController < ApplicationController
   end
 
   def create
+    @event = Event.new(event_params)
+    puts @event.title
+    if @event.save
+      flash[:success] = "Your event has been created."
+      redirect_to event_path(@event.id)
+    else
+      messages = []
+      if @event.errors.any? 
+        @event.errors.full_messages.each do |message| 
+          messages << message
+        end 
+        flash[:error] = "You failed, find the following errors :#{messages.join(" ")}"
+        render 'new'
+      end
+    end
   end
 
   def index
@@ -17,13 +32,36 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+    if !current_user?(@event.admin)
+      flash[:error] = "You are the wrong user."
+      redirect_to root_path
+    end
   end
 
   def update
+    @event = Event.find(params[:id])
+    if !current_user?(@event.admin)
+      flash[:error] = "You are the wrong user."
+      redirect_to root_path
+    else
+      if @event.update(event_params)
+        flash[:success] = "Your event has been updated."
+        redirect_to event_path(@event.id)
+      else
+        render 'edit'
+      end
+    end
   end
 
   def destroy
   end
 
+  private
+
+  def event_params
+    params.require(:events).permit(:title, :location, :duration, :description, :price, :start_date, :admin_id)
+  end
 
 end
+

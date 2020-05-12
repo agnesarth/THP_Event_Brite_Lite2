@@ -10,8 +10,8 @@
  
   <% Event.order("start_date ASC").all.each do |event| %>
     <h3><%= link_to "#{event.title}", event_path(event) %></h3>
-    <p>> <%= event.location %></p><br />
-    <p><%= event.start_date.strftime("%d/%m/%Y %H:%M") %></p><br/>
+    <p>> <%= event.location %></p>
+    <p><%= event.start_date.strftime("%d/%m/%Y %H:%M") %></p><br/><br />
   <%end%>
 </div>
 

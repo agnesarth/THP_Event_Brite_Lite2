@@ -1,4 +1,4 @@
-module UsersHelper
+module UsersHelper 
 
   def current_user?(user)
     user == current_user.id
