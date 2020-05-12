@@ -1,5 +1,5 @@
 <div class="container-fluid text-center">
-  <h2 class="mt-5">Create a new event</h2>
+  <h2 class="texte-bienvenue mt-5">Create a new event</h2>
   <div class="container-fluid">
     <%= form_for(:events,  url:(events_path), action: 'create', method: :post) do |f| %>
       <div class="field">
@@ -37,12 +37,12 @@
       </div><br />
 
       <div class="actions">
-          <%= f.submit "Register" %>
+          <%= f.submit "Register", class:"btn btn-outline-primary btn-sm" %>
       </div>
       
     <% end %>
   </div>
-  <div class="mt-5">
+  <div class="mt-5 container-fluid">
     <%= link_to "Back", :back %>
   </div>
 </div>

@@ -1,8 +1,21 @@
-<div class= "container-fluid">
-  <h3><%= @event.title %></h3>
-  <p>> <%= @event.location %></p><br />
-  <p><%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p><br/>
+<div class="card">
+  <div class="card-header">
+    Event no. <%= @event.id %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @event.title %></h5>
+    <p class="card-text">Already <%= @event.guests.count %> attendees !</p>
+    <p class="card-text">Price : <%= @event.price %> € VAT excl.</p>
+    <p class="card-text">Location : <%= @event.location %></p>
+    <p class="card-text">Start date : <%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p>
+    <p class="card-text">End date : <%= @event.end_date.strftime("%d/%m/%Y %H:%M") %></p>
+    <p class="card-text">Event's description : <%= @event.description %></p>
+    </div>
 </div>
-<div class="mt-5">
-    <%= link_to "Back", :back %>
+<div class="container-fluid text-center">
+  <p>Contact admin here : <%=@event.admin.email %></p>
 </div>
+
+
+
+

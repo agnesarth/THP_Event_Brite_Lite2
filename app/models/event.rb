@@ -29,5 +29,9 @@ class Event < ApplicationRecord
     return unless duration
     errors.add(:duration, "doit être supérieur à 0") unless duration > 0
   end
+
+  def end_date
+    start_date + (duration*60)
+  end
 end
  

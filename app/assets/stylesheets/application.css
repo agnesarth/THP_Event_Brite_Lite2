@@ -23,5 +23,9 @@
 }
 
 .flash {
-  margin-bottom: 0px;
+  margin-bottom: 0;
+}
+
+.dropdown-menu {
+  align-items: right;
 }

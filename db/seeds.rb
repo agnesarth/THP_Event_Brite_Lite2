@@ -20,7 +20,7 @@ puts "Tes users sont dans la place"
     start_date: Faker::Time.forward(days: 360),
     duration: [15, 30, 45, 60, 90, 120, 150].sample,
     title: Faker::Book.title,
-    description: Faker::Lorem.sentences(number: 2, supplemental: true),
+    description: Faker::Hacker.say_something_smart,
     price: rand(1..1000),
     location: Faker::Address.city,
     admin: User.all.sample
