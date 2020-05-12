@@ -79,7 +79,7 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  # Reidrige les emails auto pour le reset du MDP
+  # Crée le lien pour les emails auto pour le reset du MDP
   config.action_mailer.default_url_options = { :host => 'pacific-springs-71389.herokuapp.com' }
 
   # Use a different logger for distributed setups.
