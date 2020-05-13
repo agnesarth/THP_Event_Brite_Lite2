@@ -21,7 +21,8 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
-    Participant.find(params[:id]).destroy
+    @attendance = Attendance.find(params[:id])
+    @attendance.destroy
   	redirect_to root_path
   end
   
