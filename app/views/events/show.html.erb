@@ -1,6 +1,17 @@
 <div class="card">
-  <div class="card-header">
-    Event no. <%= @event.id %>
+  <div class="card-header row mr-0">
+    <ul class="navbar-nav nav-left header-left">
+      Event no. <%= @event.id %>
+    </ul>
+    <ul class="navbar-nav">
+      <%if current_user != @event.admin%>
+        <% if @event.guests.include?(current_user) %>
+            <%=link_to "Leave this event", attendance_path, class: "btn btn-outline-primary btn-sm", data_confirm:"Are you sure you want to leave ?", data_method:"DELETE" %>
+        <%else%>
+          <%=link_to "Attend event", new_attendance_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
+        <%end%>
+      <%end%>      
+    </ul>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= @event.title %></h5>
@@ -17,5 +28,5 @@
 </div>
 
 
-
-
+ 
+      

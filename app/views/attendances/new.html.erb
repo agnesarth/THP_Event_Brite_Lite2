@@ -1,0 +1,6 @@
+<div class="container-fluid">
+	<h5 class="card-title"><%=@event.title%></h5>
+  <p class="card-subtitle"><%=@event.start_date.strftime("%d/%m/%Y")%></p>
+  <%= link_to "Checkout and pay", new_charge_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
+</div>
+<br /><br /><br />
