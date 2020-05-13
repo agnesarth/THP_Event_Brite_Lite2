@@ -8,9 +8,12 @@
         <% if @event.guests.include?(current_user) %>
           You are attending this event
         <%else%>
-          <%=link_to "Attend event", new_attendance_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
+          <%=link_to "Attend event", new_attendances_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
         <%end%>
-      <%end%>      
+      <%end%>   
+      <%if current_user = @event.admin%>
+        <%=link_to "See details", attendances_path, class: "btn btn-outline-primary btn-sm" %>
+      <% end %>
     </ul>
   </div>
   <div class="card-body">
