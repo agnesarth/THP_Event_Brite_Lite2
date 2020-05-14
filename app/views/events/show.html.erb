@@ -9,10 +9,10 @@
           <% if @event.guests.include?(current_user) %>
             You are attending this event
           <%else%>
-            <%=link_to "Attend event", new_attendance_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
+            <%=link_to "Attend event",  new_event_attendance_path(event_id: @event.id), class: "btn btn-outline-primary btn-sm" %>
           <%end%>
         <%else%>   
-          <%=link_to "See details", attendances_path, class: "btn btn-outline-primary btn-sm" %>
+          <%=link_to "See details", event_attendances_path(event_id: @event.id), class: "btn btn-outline-primary btn-sm" %>
         <% end %>
       </ul>
     </div>
@@ -34,7 +34,7 @@
       <%if @event.picture.attached?%>
         <%= image_tag @event.picture, alt: 'picture', class: "card-img img-fluid", style:"max-height: 25rem" %>
       <%else%>
-        <p>=== There is no picture for this event ===</p>
+          <p class="no-img-event">=== There is no picture for this event ===</p>
       <%end%>
     </ul>
   </div>

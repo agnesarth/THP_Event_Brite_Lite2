@@ -2,7 +2,7 @@ class AttendancesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create,  :destroy]
 
   def new
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
   end
 
 
@@ -18,6 +18,10 @@ class AttendancesController < ApplicationController
        redirect_to root_path
      end
 
+  end
+
+  def index
+    @event = Event.find(params[:event_id])
   end
 
   def destroy

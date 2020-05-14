@@ -72,3 +72,10 @@
 .card-deck{
   margin-bottom: 15px;
 }
+
+.no-img-event{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+}

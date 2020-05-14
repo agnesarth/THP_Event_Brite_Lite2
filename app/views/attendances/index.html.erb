@@ -1,1 +1,12 @@
-<h1>yooo</h1>
+<div class="container-fluid text-center">
+  <h2 class="texte-bienvenue mt-5">Guests attending to your event:</h2>
+  <%n = 1%>
+  <%@event.attendances.each do |attend|%>
+      <p><%=n%> - <%=attend.guest.full_name%> (<%=attend.guest.email%>)</p>
+      <%n = n + 1%>
+  <%end%>
+  <div "row">
+    <%=link_to "Edit event", event_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
+    <%=link_to "Delete event", event_path(id: @event.id), class:"btn btn-outline-primary btn-sm", data: { confirm: "Are you sure you want to delete this event?" }, method: :delete%>
+  </div>
+</div>

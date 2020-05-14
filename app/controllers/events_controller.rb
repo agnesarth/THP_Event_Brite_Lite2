@@ -32,34 +32,45 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    if !current_user?(@event.admin)
-      flash[:error] = "You are the wrong user."
-      redirect_to root_path
-    end
+    #if !current_user?(@event.admin)
+    #  flash[:error] = "You are the wrong user."
+    #  redirect_to root_path
+    #end
   end
 
   def update
     @event = Event.find(params[:id])
-    if !current_user?(@event.admin)
-      flash[:error] = "You are the wrong user."
-      redirect_to root_path
-    else
-      if @event.update(event_params)
+    #if !current_user?(@event.admin)
+    #  flash[:error] = "You are the wrong user."
+    #  redirect_to root_path
+    #else
+      if @event.update(update_event)
         flash[:success] = "Your event has been updated."
         redirect_to event_path(@event.id)
       else
         render 'edit'
       end
-    end
+    #end
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      flash[:success] = "Your event was successfully destroyed !"
+      redirect_to root_path
+    else
+      render'destroy'
+    end
   end
 
   private
 
   def event_params
     params.require(:events).permit(:title, :location, :duration, :description, :price, :start_date, :admin_id)
+  end
+
+  def update_event
+    params.require(:event).permit(:title, :location, :duration, :description, :price, :start_date, :admin_id)
   end
 
 end
