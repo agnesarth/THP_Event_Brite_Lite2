@@ -1,51 +1,57 @@
-<div class="card">
-  <div class="card-header row mr-0">
-    <ul class="navbar-nav nav-left header-left">
-      Event no. <%= @event.id %>
-    </ul>
-    <ul class="navbar-nav class="header-right"">
-      <%if current_user != @event.admin%>
-        <% if @event.guests.include?(current_user) %>
-          You are attending this event
-        <%else%>
-          <%=link_to "Attend event", new_attendance_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
-        <%end%>
-      <%else%>   
-        <%=link_to "See details", attendances_path, class: "btn btn-outline-primary btn-sm" %>
-      <% end %>
-    </ul>
+<div class="card-deck">
+  <div class="card">
+    <div class="card-header row mr-0">
+      <ul class="navbar-nav nav-left header-left">
+        Event no. <%= @event.id %>
+      </ul>
+      <ul class="navbar-nav class="header-right"">
+        <%if current_user != @event.admin%>
+          <% if @event.guests.include?(current_user) %>
+            You are attending this event
+          <%else%>
+            <%=link_to "Attend event", new_attendance_path(id: @event.id), class: "btn btn-outline-primary btn-sm" %>
+          <%end%>
+        <%else%>   
+          <%=link_to "See details", attendances_path, class: "btn btn-outline-primary btn-sm" %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="card-body">
+      <ul class="card-body-left">
+        <h5 class="card-title"><%= @event.title %></h5>
+        <p class="card-text">Already <%= @event.guests.count %> attendees !</p>
+        <p class="card-text">Price : <%= @event.price %> € VAT excl.</p>
+        <p class="card-text">Location : <%= @event.location %></p>
+        <p class="card-text">Start date : <%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p>
+        <p class="card-text">End date : <%= @event.end_date.strftime("%d/%m/%Y %H:%M") %></p>
+        <p class="card-text">Event's description : <%= @event.description %></p>
+      </ul>
+    </div>
   </div>
-  <div class="card-body">
-    <ul>
-      <h5 class="card-title"><%= @event.title %></h5>
-      <p class="card-text">Already <%= @event.guests.count %> attendees !</p>
-      <p class="card-text">Price : <%= @event.price %> € VAT excl.</p>
-      <p class="card-text">Location : <%= @event.location %></p>
-      <p class="card-text">Start date : <%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p>
-      <p class="card-text">End date : <%= @event.end_date.strftime("%d/%m/%Y %H:%M") %></p>
-      <p class="card-text">Event's description : <%= @event.description %></p>
-    </ul>
-    <ul>
+
+  <div class="card">
+    <ul class="img-event">
       <%if @event.picture.attached?%>
-        <%= image_tag @event.picture, alt: 'picture' %>
+        <%= image_tag @event.picture, alt: 'picture', class: "card-img img-fluid", style:"max-height: 25rem" %>
       <%else%>
         <p>=== There is no picture for this event ===</p>
       <%end%>
-
     </ul>
   </div>
 </div>
-<div class="container-fluid text-center">
-  <%if current_user == @event.admin%>
-    <p> Want to change picture ?</p>
-    <%= form_tag event_pictures_path(@event), multipart: true do %>
-      <%= file_field_tag :picture %>
-      <%= submit_tag "Update", class:"btn btn-outline-primary btn-sm"%>
-    <% end %>
-  <% else %>
-    <p>Contact admin here : <%=@event.admin.email %></p>
-  <% end %>
-</div>
+  <div class="container-fluid text-center">
+    <div class="card-img">
+      <%if current_user == @event.admin%>
+        <p> Want to change picture ?</p>
+        <%= form_tag event_pictures_path(@event), multipart: true do %>
+          <%= file_field_tag :picture %>
+          <%= submit_tag "Update", class:"btn btn-outline-primary btn-sm"%>
+        <% end %>
+      <% else %>
+        <p>Contact admin here : <%=@event.admin.email %></p>
+      <% end %>
+    </div>
+  </div>
 
 
  

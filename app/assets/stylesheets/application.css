@@ -46,3 +46,29 @@
   justify-content: center;
   align-items: center;
 }
+
+.card-body-left{
+  padding-inline-start: 0px;
+}
+
+.card-deck{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.card-header{
+  margin-left: 0px;
+}
+
+.card-img{
+  object-fit: cover;
+}
+
+.img-event {
+  padding-inline-start: 0px;
+  margin-bottom: 0px;
+}
+
+.card-deck{
+  margin-bottom: 15px;
+}
