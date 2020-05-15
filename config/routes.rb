@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     resources :attendances
     resources :pictures, only: [:new, :create]
   end
-  resources :users
 
+  namespace :admin do
+    root 'admin#index'
+    resources :users, :events
+  end
+
+  resources :users
   resources :charges, only: [:new, :create]
 end
