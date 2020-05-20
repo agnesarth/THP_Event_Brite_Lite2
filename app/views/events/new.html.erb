@@ -1,53 +1,73 @@
-<div class="container-fluid text-center">
-  <h2 class="texte-bienvenue mt-5">Create a new event</h2>
-  <div class="container-fluid">
-    <%= form_for(:events,  url:(events_path), action: 'create', method: :post) do |f| %>
-      <div class="field">
-        <%= f.hidden_field :admin_id, :value => current_user.id %>
-      </div><br />
+<div class="mt-lg-5 mt-1 mb-3 pt-0">
+  <div class="col-12 d-flex align-items-center justify-content-center">
+    <div class="col-lg-4 col-12 box-shadow-2 p-0">
+      <div class="card border-grey border-lighten-3 m-0">
+        <div class="card-header border-0">
+          <div class="text-center mb-1">
+            <h3>Create a new event</h3>        
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <%= form_for(:events,  url:(events_path), action: 'create', method: :post) do |f| %>
 
-      <div class="field">
-        <%= f.label "Title" %><br />
-        <%= f.text_field :title, autofocus: true, autocomplete: :title %>
-      </div><br />
+              <div class="field">
+                <%= f.hidden_field :admin_id, :value => current_user.id %>
+              </div><br />
 
-      <div class="field">
-        <%= f.label "Description" %> <br />
-        <%= f.text_area :description, autocomplete: :description %>
-      </div><br />
+              <fieldset class="form-group position-relative">
+                <%= f.label :title %><br />
+                <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+              </fieldset>
 
-      <div class="field">
-        <%= f.label "Location" %> <br />
-        <%= f.text_field :location, autocomplete: :location %>
-      </div><br />
+              <fieldset class="form-group position-relative">
+                <%= f.label :description %>
+                <%= f.text_area :description, autocomplete: "description", class: "form-control" %>
+              </fieldset>
 
-      <div class="field">
-        <%= f.label "Start-date" %> <br />
-        <%= f.datetime_field :start_date, autocomplete: :start_date %>
-      </div><br />
-      
-      <div class="field">
-        <%= f.label "Duration (in minutes)"%> <br />
-        <%= f.text_field :duration, placeholder: "It must be a multiple of 5" %>
-      </div><br />
+              <fieldset class="form-group position-relative">
+                <%= f.label :location %>
+                <%= f.text_field :location, autocomplete: "location", class: "form-control" %>
+              </fieldset>
 
-      <div class="field">
-        <%= f.label "Price" %> <br />
-        <%= f.number_field :price, autocomplete: :price %>
-      </div><br />
+              <fieldset class="form-group position-relative">
+                <%= f.label :start_date %>
+                <%= f.datetime_field :start_date, autocomplete: "start_date", class: "form-control" %>
+              </fieldset>
 
-      <div class="field my-3">
-        <%= f.label "Illustration" %> <br />
-        <%= f.file_field :picture %>
+              <fieldset class="form-group position-relative">
+                <%= f.label "Duration (in minutes)" %>
+                <%= f.text_field :duration, autocomplete: "start_date", placeholder: "It must be a multiple of 5", class: "form-control" %>
+              </fieldset>
+
+              <fieldset class="form-group position-relative">
+                <%= f.label :price %>
+                <%= f.number_field :price, autocomplete: "price", class: "form-control" %>
+              </fieldset>
+
+              <fieldset class="form-group position-relative">
+                <%= f.label :picture %><br>
+                <%= f.file_field :picture, autocomplete: "picture" %>
+              </fieldset>
+                 
+
+              <div class="form-group ">
+                <div class="row justify-content-center">
+                  <div class="col-12">
+                    <%= f.submit "Register", class: "col-12 btn btn-primary mr-1 mb-1" %>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="text-center">
+                <div class="col-12 float-sm-left text-center pt-2 mb-2">
+                  <a class="card-link" href="<%= root_path%>">Back</a>
+                </div>
+              </div>
+            <% end %>       
+          </div>
+        </div>
       </div>
-           
-      <div class="actions">
-          <%= f.submit "Register", class:"btn btn-outline-primary btn-sm" %>
-      </div>
-      
-    <% end %>
-  </div>
-  <div class="mt-5 container-fluid">
-    <%= link_to "Back", :back %>
+    </div>
   </div>
 </div>
