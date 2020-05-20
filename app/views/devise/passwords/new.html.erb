@@ -1,17 +1,42 @@
-<h2>Forgot your password?</h2>
+<div class="mt-lg-5 mt-1 mb-3 pt-0">
+  <div class="col-12 d-flex align-items-center justify-content-center">
+    <div class="col-lg-4 col-12 box-shadow-2 p-0">
+      <div class="card border-grey border-lighten-3 m-0">
+        <div class="card-header border-0">
+          <div class="text-center mb-1">
+            <h3>Forgotten password ?</h3>        
+          </div>
+        </div>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="card-content">
+          <div class="card-body">
+            <form class="form-horizontal" action="/users?locale=fr" accept-charset="UTF-8" method="post">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name) , html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <fieldset class="form-group position-relative">
+                <input type="email" name="" id="" class="form-control" placeholder="Your email" required="required" />
+              </fieldset>
+            
+              <fieldset class="form-group position-relative">
+                <button name="button" type="submit" class="col-12 btn btn-primary mr-1 mb-1" id="">Send the reset password link</button>
+              </fieldset>
+            
+              <hr>
+            </form>            
+            <div class="text-center">
+              <div class="col-12 float-sm-left text-center pt-2">
+                <a class="card-link" href="#">Send email again</a>
+              </div>
+              <div class="col-12 float-sm-left text-center pt-2 mb-2">
+                <a class="card-link" href="<%= root_path%>">Return home</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
 

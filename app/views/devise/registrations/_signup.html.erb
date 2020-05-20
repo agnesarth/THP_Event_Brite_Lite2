@@ -4,40 +4,45 @@
       <div class="card border-grey border-lighten-3 m-0">
         <div class="card-header border-0">
           <div class="text-center mb-1">
-            <h3>Edit my profile</h3>        
+            <h3>Sign up</h3>        
           </div>
         </div>
         <div class="card-content">
           <div class="card-body">
-            <%= form_for(current_user, url: user_path(current_user), method: :put) do |f| %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
 
               <fieldset class="form-group position-relative">
-                <%= f.label :first_name %><br />
-                <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "Email", class: "form-control" %>
               </fieldset>
 
               <fieldset class="form-group position-relative">
-                <%= f.label :last_name %>
-                <%= f.text_field :last_name, autocomplete: "last_name", class: "form-control" %>
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control password-input-field" %>
               </fieldset>
 
               <fieldset class="form-group position-relative">
-                <%= f.label :description %>
-                <%= f.text_area :description, autocomplete: "description", class: "form-control" %>
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control password-confirmation-input-field" %><br />
               </fieldset>
 
               <div class="form-group ">
                 <div class="row justify-content-center">
                   <div class="col-12">
-                    <%= f.submit "Edit", class: "col-12 btn btn-primary mr-1 mb-1" %>
+                    <%= f.submit "Sign up", class: "col-12 btn btn-primary mr-1 mb-1" %>
                   </div>
                 </div>
               </div>
               <hr>
               <div class="text-center">
                 <div class="col-12 float-sm-left text-center pt-2 mb-2">
-                  <a class="card-link" href="<%= user_path%>">Back</a>
+                  <a class="card-link" href="<%= root_path%>">Return home</a>
                 </div>
+                <%= render "devise/shared/links" %>
               </div>
             <% end %>       
           </div>
