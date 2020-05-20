@@ -1,0 +1,15 @@
+<div class= "container-fluid">
+  <div class="my-3 p-3 bg-white rounded box-shadow">
+      <h3 class="text-center">Attendees for <%=@event.title%></h3>
+      <h6 class="border-bottom border-gray pb-2 mb-0">Already <%= @event.guests.count %> attendees !</h6>
+      <%@event.attendances.each do |attend|%>
+        <div class="media text-muted pt-3">
+          <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 32px; height: 32px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQihTRlZe9hx4Fkx4scyEhUKy3jfvEmzRPyviQqxBpwxJPAZ9tO&usqp=CAU" data-holder-rendered="true">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%=attend.guest.full_name%></strong>
+            <%=attend.guest.email%>
+          </p>
+        </div>
+      <%end%> 
+  </div>
+</div>

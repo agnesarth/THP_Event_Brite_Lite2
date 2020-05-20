@@ -1,0 +1,71 @@
+<footer class="page-footer font-small unique-color-primary">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5 footer-header">
+    <!-- Grid row -->
+    <div class="row mt-3">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold footer-text footer-header">Eventbrite Lite</h6>
+        <hr class="footer-line accent-2 mb-4 mt-0 d-inline-block mx-auto footer-text" style="width: 60px;">
+        <p>Welcome on Eventbrite, THE website to know the best events coming in your town. So enjoy !</p>
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold footer-text footer-header">Products</h6>
+        <hr class="footer-line accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="<%=new_event_path%>" class="footer-text">New event</a>
+        </p>
+        <p>
+          <a href="<%=root_path%>" class="footer-text">All events</a>
+        </p>
+        <p>
+          <% if user_signed_in? %>
+            <%= link_to "#{current_user.email}", user_path(current_user), class:"footer-text"%>
+          <%end%>
+        </p>
+        <p>
+          <a href="#!" class="footer-text">Get premium</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold footer-text footer-header">Useful links</h6>
+        <hr class="footer-line accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!" class="footer-text">Team</a>
+        </p>
+        <p>
+          <a href="#!" class="footer-text">Career</a>
+        </p>
+        <p>
+          <a href="#!" class="footer-text">Legal Notice</a>
+        </p>
+        <p>
+          <a href="#!" class="footer-text">Languages</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold footer-text footer-header">Contact</h6>
+        <hr class="footer-line accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Tombouctou</p>
+        <p>event@brite.com</p>
+        <p>+ 01 02 03 04 05</p>
+        <p>+ 02 03 04 05 06</p>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 footer-text">© 2020 Copyright: THP - 
+    <a href="#" class = "footer-text">Raphaël & Agnès</a>
+  </div>
+</footer>

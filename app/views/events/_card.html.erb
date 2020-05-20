@@ -1,0 +1,25 @@
+<div class= "container-fluid"><br>
+  <h1 class="text-center">All events</h1><br>
+  <div class="row" style= "display: flex; flex-flow: row wrap; justify-content: space-around">
+    <% Event.order("start_date ASC").all.each do |event| %> 
+      <div class="card" style="width: 25rem" >
+        <div class="card-body" style="background-color: #f0ad4e">
+          <h5 class="card-title text-center" ><%= event.title %></h5>
+          <h6 class="card-text text-center" ><%= event.start_date.strftime("%d/%m/%Y %H:%M") %></h6><br />
+          <div class="row" style= "display: flex; text-align: center; flex-basis: auto; align-items: flex-end">
+          <%if event.picture.attached?%>
+            <%= image_tag event.picture, alt: 'picture', class: "card-img-left" %>
+          <%else%>
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="picture-event" class="card-img-left"></img>
+          <%end%>
+
+            <p class="card-text" >- <%= event.location %></p><br />
+          </div>
+          <br />
+          <a href="<%=event_path(event)%>" class="btn btn-outline-primary">See event</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br />
